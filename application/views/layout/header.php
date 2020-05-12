@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url().'assets/images/favicon.png' ?>">
     <!-- Custom Stylesheet -->
     <link href="<?= base_url().'assets/css/style.css' ?>" rel="stylesheet">
+    <link href="<?= base_url().'assets/css/custom.css' ?>" rel="stylesheet">
 </head>
 
 <body>

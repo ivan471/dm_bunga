@@ -62,8 +62,8 @@ Sidebar start
 				</a>
 			</li>
 			<li>
-				<a href="<?= base_url().'bunga' ?>" aria-expanded="false">
-					<i class="icon-badge menu-icon"></i><span class="nav-text">Bunga</span>
+				<a href="<?= base_url().'order' ?>" aria-expanded="false">
+					<i class="icon-badge menu-icon"></i><span class="nav-text">Order Bunga</span>
 				</a>
 			</li>
 		</ul>

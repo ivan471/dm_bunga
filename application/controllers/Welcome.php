@@ -9,6 +9,6 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data['bunga'] = $this->model_data->get_all();
-		$this->load->template('index',$data);
+		$this->load->template('index', $data);
 	}
 }
