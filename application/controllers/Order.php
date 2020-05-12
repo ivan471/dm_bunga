@@ -6,26 +6,27 @@ class Order extends CI_Controller {
 		parent::__construct();
 		$this->load->model('model_data');
 	}
-	public function index()
-	{
+	public function index(){
 		$data['order'] = $this->model_data->get_order();
 		$this->load->template('order/index', $data);
 	}
-	public function add()
-	{
+	public function add(){
 		$data['bunga'] = $this->model_data->get_all();
-		$this->load->template('bunga/add', $data);
+		$this->load->template('order/add', $data);
 	}
-	public function edit()
-	{
-		$this->load->template('bunga/edit');
+	public function edit($id){
+		$data['bunga'] = $this->model_data->get_item($id);
+		$this->load->template('order/edit', $data);
 	}
-	public function delete()
-	{
-
+	public function add_item(){
+		$this->model_data->add_item();
+		redirect('/order');
 	}
-	public function cancel()
-	{
+	public function delete($id){
+		$this->model_data->delete_item($id);
+		redirect('/order');
+	}
+	public function cancel(){
 
 	}
 }
