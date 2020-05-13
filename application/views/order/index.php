@@ -34,7 +34,10 @@
 								<?php $i++; endforeach; ?>
 							</tbody>
 						</table>
-						<a href="#" class="save mb-5 mx-auto">Cetak</a>
+						<div class="row mx-auto">
+							<a href="<?= base_url().'cetak' ?>" class="save mb-3 mr-3" style="padding:12px 40px;">Cetak</a>
+							<a href="<?= base_url().'cancel' ?>" class="delete mb-3" style="padding:12px 40px;">Batal</a>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-4">

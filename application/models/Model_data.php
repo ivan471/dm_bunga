@@ -15,6 +15,9 @@ class Model_data extends CI_Model{
 	public function delete_item($id){
 		$this->db->delete('tb_sementara', array('id' => $id));
 	}
+	public function cancel(){
+		$this->db->empty_table('tb_sementara');
+	}
 	public function add_item(){
 		$jumlah = $this->input->post('jumlah');
 		$harga = $this->input->post('harga');

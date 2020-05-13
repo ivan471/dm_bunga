@@ -27,6 +27,7 @@ class Order extends CI_Controller {
 		redirect('/order');
 	}
 	public function cancel(){
-
+		$this->model_data->cancel();
+		redirect('/order');
 	}
 }
