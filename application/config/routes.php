@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['order'] 								= 'order';
 $route['add'] 									= 'order/add';
 $route['add_item'] 							= 'order/add_item';
+$route['edit_item'] 						= 'order/edit_item';
 $route['edit/(:any)'] 					= 'order/edit/$1';
 $route['delete/(:any)'] 				= 'order/delete/$1';
 $route['cancel'] 								= 'order/cancel';

@@ -5,7 +5,7 @@
 				<div class="card-header mx-auto">
 					<h3>Edit Order Bunga</h3>
 				</div>
-				<form class="ml-5 mr-5" action="index.html" method="post">
+				<form class="ml-5 mr-5" action="<?= base_url().'edit_item' ?>" method="post">
 					<div class="form-group">
 						<label for="">Kode Barang</label>
 						<input class="form-control" type="text" name="id" value="<?= $bunga['id'] ?>" readonly>

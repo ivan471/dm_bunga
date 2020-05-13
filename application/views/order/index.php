@@ -19,9 +19,9 @@
 								<tr>
 									<th scope="row"><?= $i; ?></th>
 									<td><?= $b['nama']; ?></td>
-									<td><?= $b['harga']; ?></td>
+									<td>Rp.<?= $b['harga']; ?></td>
 									<td><?= $b['jumlah']; ?></td>
-									<td><?= $b['total']; ?></td>
+									<td>Rp.<?= $b['total']; ?></td>
 									<td>
 										<form class="" action="<?= base_url().'edit/'.$b['id'] ?>" method="post">
 											<button type="submit" name="button" class="edit float-left">Edit</button>
@@ -32,6 +32,13 @@
 									</td>
 								</tr>
 								<?php $i++; endforeach; ?>
+								<tr>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th>Rp.<?= $total['SUM(total)']; ?></th>
+								</tr>
 							</tbody>
 						</table>
 						<div class="row mx-auto">

@@ -8,6 +8,7 @@ class Order extends CI_Controller {
 	}
 	public function index(){
 		$data['order'] = $this->model_data->get_order();
+		$data['total'] = $this->model_data->total_order();
 		$this->load->template('order/index', $data);
 	}
 	public function add(){
@@ -20,6 +21,10 @@ class Order extends CI_Controller {
 	}
 	public function add_item(){
 		$this->model_data->add_item();
+		redirect('/order');
+	}
+	public function edit_item(){
+		$this->model_data->edit_item();
 		redirect('/order');
 	}
 	public function delete($id){
