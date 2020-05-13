@@ -16,6 +16,10 @@ class Model_data extends CI_Model{
 		$query = $this->db->query("SELECT * FROM tb_sementara where id='".$id."'");
 		return $query->row_array();
 	}
+	public function get_bunga($id){
+		$query = $this->db->query("SELECT * FROM bunga where id='".$id."'");
+		return $query->row_array();
+	}
 	public function edit_item(){
 		$jumlah = $this->input->post('jumlah');
 		$harga = $this->input->post('harga');
@@ -23,6 +27,11 @@ class Model_data extends CI_Model{
 		$data = array('jumlah' => $jumlah , 'total' =>$total);
 		$this->db->where('id', $this->input->post('id'));
 		$this->db->update('tb_sementara' , $data);
+	}
+	public function edit_bunga(){
+		$data = array('harga' => $this->input->post('harga'));
+		$this->db->where('id', $this->input->post('id'));
+		$this->db->update('bunga' , $data);
 	}
 	public function delete_item($id){
 		$this->db->delete('tb_sementara', array('id' => $id));
@@ -42,5 +51,12 @@ class Model_data extends CI_Model{
 			'total' => $total
 		];
 		$this->db->insert('tb_sementara', $data);
+	}
+	public function bunga_baru(){
+		$data=[
+			'nama' => $this->input->post('nama'),
+			'harga' => $this->input->post('harga')
+		];
+		$this->db->insert('bunga', $data);
 	}
 }
