@@ -1,14 +1,15 @@
 <div class="content-body">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-8">
 				<div class="card">
-					<table class="table">
+					<input type="search" class="form-control mx-auto mt-2" style="width:95%" id="myInput" onkeyup="myFunction()" placeholder="Cari Nama Bunga" aria-label="Search Dashboard">
+					<table id="myTable" class="table mt-3">
 						<thead>
 							<tr>
-								<th scope="col" style="width:3%">No</th>
-								<th scope="col" style="width:30%">Nama Bunga</th>
-								<th scope="col">Harga</th>
+								<th scope="col" style="width:4%">No</th>
+								<th scope="col" style="width:45%">Nama Bunga</th>
+								<th scope="col" style="width:25%">Harga</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -16,7 +17,7 @@
 								<tr>
 									<th scope="row"><?= $i; ?></th>
 									<td><?= $b['nama']; ?></td>
-									<td><?= $b['harga']; ?></td>
+									<td>Rp.<?= number_format($b['harga'], 0, ".", ".") ?></td>
 									<td>
 										<form class="" action="<?= base_url().'edit_bunga/'.$b['id'] ?>" method="post">
 											<button type="submit" name="button" class="edit float-left">Edit</button>
@@ -39,3 +40,23 @@
 			</div>
 		</div>
 	</div>
+	<script>
+	function myFunction() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[0];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+	</script>

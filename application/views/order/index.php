@@ -3,7 +3,8 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="card">
-					<table class="table">
+					<input type="search" class="form-control mx-auto mt-2" style="width:95%" id="myInput" onkeyup="myFunction()" placeholder="Cari Nama Bunga" aria-label="Search Dashboard">
+					<table id="myTable" class="table">
 						<thead>
 							<tr>
 								<th scope="col" style="width:3%">No</th>
@@ -19,9 +20,9 @@
 								<tr>
 									<th scope="row"><?= $i; ?></th>
 									<td><?= $b['nama']; ?></td>
-									<td>Rp.<?= $b['harga']; ?></td>
+									<td>Rp.<?= number_format($b['harga'], 0, ".", ".") ?></td>
 									<td><?= $b['jumlah']; ?></td>
-									<td>Rp.<?= $b['total']; ?></td>
+									<td>Rp.<?= number_format($b['total'], 0, ".", ".") ?></td>
 									<td>
 										<form class="" action="<?= base_url().'edit/'.$b['id'] ?>" method="post">
 											<button type="submit" name="button" class="edit float-left">Edit</button>
@@ -37,7 +38,7 @@
 									<th></th>
 									<th></th>
 									<th></th>
-									<th>Rp.<?= $total['SUM(total)']; ?></th>
+									<th>Rp.<?= number_format($total['SUM(total)'], 0, ".", ".") ?></th>
 								</tr>
 							</tbody>
 						</table>
@@ -58,3 +59,23 @@
 			</div>
 		</div>
 	</div>
+	<script>
+	function myFunction() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[0];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+	</script>

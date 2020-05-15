@@ -23,7 +23,7 @@
 									<input type="hidden" name="harga" value="<?= $b['harga']; ?>">
 									<th scope="row"><?= $i; ?></th>
 									<td><?= $b['nama']; ?></td>
-									<td><?= $b['harga']; ?></td>
+									<td>Rp.<?= number_format($b['harga'], 0, ".", ".") ?></td>
 									<td><input class="form-control" type="number" name="jumlah" min="0" maxlength="2" required></td>
 									<td><button class="save" type="submit">Pilih</button></td>
 								</form>
